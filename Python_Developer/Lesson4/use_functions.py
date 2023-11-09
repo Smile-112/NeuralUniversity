@@ -32,14 +32,12 @@
 
 
 def more_money() -> int:
-
     "Запрашивает и возвращает количество денег для пополнения счета"
 
     return int(input("Пожалуйста, введите сумму для пополнения счета: "))
 
 
 def buy(acc, amount_buy):
-
     """
     Позволяет купить что-либо на имеющиеся у вас деньги
     :param acc: ваш текущий счет
@@ -52,34 +50,38 @@ def buy(acc, amount_buy):
     return acc, target_buy, amount_buy
 
 
-account: int = 0
-holder = {}
-while True:
-    print('\n1. пополнение счета\n'
-          '2. покупка\n'
-          '3. история покупок\n'
-          '4. выход')
+def main1():
+    account: int = 0
+    holder = {}
+    while True:
+        print('\n1. пополнение счета\n'
+              '2. покупка\n'
+              '3. история покупок\n'
+              '4. выход')
 
-    choice = input('Выберите пункт меню: ')
-    match choice:
-        case '1':
-            account += more_money()
+        choice = input('Выберите пункт меню: ')
+        match choice:
+            case '1':
+                account += more_money()
 
-        case '2':
-            amount = int(input("Введите сумму покупки: "))
-            if amount > account:
-                print("\nНедостаточно средств")
-                continue
-            account, target, amount = buy(account, amount)
-            holder[target] = amount
+            case '2':
+                amount = int(input("Введите сумму покупки: "))
+                if amount > account:
+                    print("\nНедостаточно средств")
+                    continue
+                account, target, amount = buy(account, amount)
+                holder[target] = amount
 
-        case '3':
-            print("\n")
-            for key, value in holder.items():
-                print(f"{key}: {value}")
+            case '3':
+                print("\n")
+                for key, value in holder.items():
+                    print(f"{key}: {value}")
 
-        case '4':
-            break
+            case '4':
+                break
 
-        case _:
-            print('Неверный пункт меню')
+            case _:
+                print('Неверный пункт меню')
+
+
+main1()
