@@ -83,5 +83,5 @@ def main1():
             case _:
                 print('Неверный пункт меню')
 
-
-main1()
+if __name__ == "__main__":
+    main1()

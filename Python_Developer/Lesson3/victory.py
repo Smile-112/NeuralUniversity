@@ -56,5 +56,6 @@ def date_to_text(date_str):
     return f'{day_text} {month_text} {year} года'
 
 
-while input("Нажмите Enter, чтобы продолжить...\n")=="":
-    question_game()
+if __name__ == "__main__":
+    while input("Нажмите Enter, чтобы продолжить...\n") == "":
+        question_game()
